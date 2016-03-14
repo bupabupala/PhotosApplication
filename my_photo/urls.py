@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from photos import views
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^home/$', views.home, name='home'), 
+    url(r'^time/plus/\d{1,2}/$', views.current_datetime, name='current_datetime'), 
+    url(r'^time/plus/(\d{1,2})$', views.hours_ahead),
 ]
